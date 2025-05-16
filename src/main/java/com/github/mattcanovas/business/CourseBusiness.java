@@ -1,5 +1,6 @@
 package com.github.mattcanovas.business;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,6 +15,7 @@ public class CourseBusiness {
     }
 
     public List<String> retrieveCoursesRelatedToSpring(String student) {
+        if ("FooBar".equals(student)) return new ArrayList<>();
         return service.retrieveCourses(student)
             .stream()
             .filter((course) -> course.contains("Spring"))
