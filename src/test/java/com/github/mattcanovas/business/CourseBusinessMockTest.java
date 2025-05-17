@@ -4,11 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import static org.mockito.BDDMockito.*;
+import static org.mockito.Mockito.mock;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import com.github.mattcanovas.services.ICourseService;
 
@@ -17,6 +22,7 @@ public class CourseBusinessMockTest {
     private ICourseService service;
     private CourseBusiness business;
     private List<String> courses;
+
     @BeforeEach
     public void setup() {
         service = mock(ICourseService.class);
@@ -36,10 +42,38 @@ public class CourseBusinessMockTest {
     }
 
     @Test
-    public void testCoursesRelatedToSpring_When_UsingAStub() {
-        when(service.retrieveCourses("Matheus")).thenReturn(courses);
+    public void testCoursesRelatedToSpring_When_UsingAMock() {
+        given(service.retrieveCourses("Matheus")).willReturn(courses);
         List<String> filteredCourses = business.retrieveCoursesRelatedToSpring("Matheus");
-        assertEquals(4, filteredCourses.size());
+        assertThat(filteredCourses.getClass(), is(ArrayList.class));
+        assertThat(filteredCourses.size(), is(4));
     }
 
+    @Test
+    public void testDeleteCoursesNotRelatedToSpring_UsingMockitoVerify_Should_CallMethod() {
+        given(service.retrieveCourses("Matheus")).willReturn(courses);
+        business.deleteCoursesNotRelatedToSpring("Matheus");
+        verify(service).deleteCourse("Kotlin para DEV's Java: Aprenda a Linguagem Padrão do Android");
+    }
+
+    @Test
+    public void testDeleteCoursesNotRelatedToSpring_UsingMockitoVerify_Should_CallMethod_deleteCourse() {
+        given(service.retrieveCourses("Matheus")).willReturn(courses);
+        business.deleteCoursesNotRelatedToSpring("Matheus");
+        then(service)
+            .should()
+                .deleteCourse("Agile Desmistificando com Scrum, XP, Kanban e Trello.");
+        then(service)
+            .should(never())
+                .deleteCourse("REST API's RESTFul do 0 à AWS com Spring Boot 3 Kotlin e Docker");
+    }
+
+    @Test
+    public void testDeleteCoursesNotRelatedToSpring_UsingArgumentCaptor_Should_CallMethod_deleteCourse_SevenTimes() {
+        given(service.retrieveCourses("Matheus")).willReturn(courses);
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        business.deleteCoursesNotRelatedToSpring("Matheus");
+        then(service).should(times(7)).deleteCourse(captor.capture());
+        assertThat(captor.getAllValues().size(), is(7));
+    }
 }

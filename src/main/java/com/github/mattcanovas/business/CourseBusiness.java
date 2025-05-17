@@ -22,4 +22,13 @@ public class CourseBusiness {
             .collect(Collectors.toList());
     }
 
+    public void deleteCoursesNotRelatedToSpring(String student) {
+        List<String> allCourses = service.retrieveCourses(student);
+        allCourses
+            .stream()
+            .forEach((course) -> {
+                if (!course.contains("Spring")) service.deleteCourse(course);
+            });
+    }
+
 }
