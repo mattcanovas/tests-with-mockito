@@ -62,18 +62,21 @@ public class CourseBusinessMockTest {
         business.deleteCoursesNotRelatedToSpring("Matheus");
         then(service)
             .should()
-                .deleteCourse("Agile Desmistificando com Scrum, XP, Kanban e Trello.");
+                .deleteCourse("Agile Desmistificado com Scrum, XP, Kanban e Trello");
         then(service)
             .should(never())
                 .deleteCourse("REST API's RESTFul do 0 à AWS com Spring Boot 3 Kotlin e Docker");
     }
 
     @Test
-    public void testDeleteCoursesNotRelatedToSpring_UsingArgumentCaptor_Should_CallMethod_deleteCourse_SevenTimes() {
+    public void testDeleteCoursesNotRelatedToSpring_CaputringArguments_Should_CallMethod_deleteCourses() {
         given(service.retrieveCourses("Matheus")).willReturn(courses);
-        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+
         business.deleteCoursesNotRelatedToSpring("Matheus");
-        then(service).should(times(7)).deleteCourse(captor.capture());
-        assertThat(captor.getAllValues().size(), is(7));
+
+        then(service).should(times(7)).deleteCourse(argumentCaptor.capture());
+        assertThat(argumentCaptor.getAllValues().size(), is(7));
     }
 }
