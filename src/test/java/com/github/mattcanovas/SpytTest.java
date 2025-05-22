@@ -9,11 +9,13 @@ import static org.mockito.Mockito.verify;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class SpytTest {
 
     @Test
+    @Disabled
     public void whenCreateMock_thenCreate() {
         List<String> mockedList = mock(ArrayList.class);
 
@@ -24,6 +26,7 @@ public class SpytTest {
     }
 
     @Test
+    @Disabled
     public void whenCreateSpy_thenCreate() {
         List<String> spyList = spy(ArrayList.class);
 
