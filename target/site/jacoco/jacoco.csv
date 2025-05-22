@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+tests-with-mockito,com.github.mattcanovas.business,OrderBusiness,13,0,0,0,4,0,2,0,2,0
+tests-with-mockito,com.github.mattcanovas.business,CourseBusiness,0,49,0,4,0,15,0,7,0,5
+tests-with-mockito,com.github.mattcanovas.services.implementations,CheckoutService,0,12,0,0,0,3,0,2,0,2
+tests-with-mockito,com.github.mattcanovas.services.implementations,OrderService,0,27,0,2,0,7,0,3,0,2
+tests-with-mockito,com.github.mattcanovas.utils,SystemUtils,12,0,2,0,4,0,3,0,2,0
+tests-with-mockito,com.github.mattcanovas.processors,PaymentProcessor,56,0,0,0,20,0,10,0,10,0
+tests-with-mockito,com.github.mattcanovas.entity,Order,6,25,0,0,2,12,2,7,2,7

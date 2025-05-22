@@ -1,0 +1,11 @@
+com\github\mattcanovas\services\OrderServiceTest.class
+com\github\mattcanovas\business\CourseBusinessStubTest.class
+com\github\mattcanovas\mockito\HamcrestMatchersTest.class
+com\github\mattcanovas\mockito\CourseBusinesTest.class
+com\github\mattcanovas\ListTest.class
+com\github\mattcanovas\services\CheckoutServiceTest.class
+com\github\mattcanovas\business\CourseBusinessMockTest.class
+com\github\mattcanovas\BDDMockitAndHamcrestTest.class
+com\github\mattcanovas\SpytTest.class
+com\github\mattcanovas\SystemUtilsTest.class
+com\github\mattcanovas\services\stubs\CourseServiceStub.class

@@ -1,6 +1,10 @@
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\business\CourseBusiness.java
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\business\OrderBusiness.java
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\entity\Order.java
+C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\processors\PaymentProcessor.java
+C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\services\ICheckoutService.java
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\services\ICourseService.java
+C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\services\implementations\CheckoutService.java
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\services\implementations\OrderService.java
 C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\services\IOrderService.java
+C:\Projetos\junit\tests-with-mockito\src\main\java\com\github\mattcanovas\utils\SystemUtils.java
